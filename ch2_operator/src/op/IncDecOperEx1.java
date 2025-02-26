@@ -23,7 +23,7 @@ public class IncDecOperEx1 {
         // ① num2 +1 을 먼저 한 후 사용
         // num2++
         // ①num2 사용  -> ② num2 +1을 함
-        System.out.println("num = " + (++num2));
+        System.out.println("num = " + (++num2)); // 이 표현을 주로 씀.
 
     }
 }

@@ -10,7 +10,7 @@ public class VarByteEx1 {
         // 기본타입 : 정수형, 문자형, 실수형, 불린형
         // 정수형 : byte(1), short(2), int(4), long(8)
         // 문자형 : char(2)
-        // 실수형 : float(4), double(8)
+        // 실수형 : float(4), double(8)  ------> int float는 같은 바이트라고 해도 float는 실수까지 표현이되어 더크다고 인식됨.
         // 불린형 : boolean(1)
         
         // 상수 : 값을 한번만 저장
