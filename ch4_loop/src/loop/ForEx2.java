@@ -33,8 +33,16 @@ public class ForEx2 {
         for (int i = 2; i < 11; i+=2) {
             System.out.print(i+"   ");
         }
-        
 
+        // 활용.
+        int i = 0;
+        for (int j = 0, k = 1; i < args.length; i++) {
+            
+        }
+
+        // for(;;){
+
+        // }
 
     }
 }

@@ -19,7 +19,6 @@ public class WhileEx4 {
             i++;
         }
         
-
     }
 }
 
