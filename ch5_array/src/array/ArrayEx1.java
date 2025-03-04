@@ -7,7 +7,7 @@ package array;
 public class ArrayEx1 {
     public static void main(String[] args) {
         // 학생 100명의 점수를 입력
-        // int[] 배열명 = new int[100]; --> 배열 선언, 생성
+        // int[] 배열명 = new int[100]; --> 배열 선언, 생성 // 암기
 
         int[] scores = new int[5]; // socores(stack 공간) -> [][][][][] (heap 공간)
 
