@@ -23,7 +23,8 @@ public class Student {
 
     // 생성자 목적
     // 맴버변수 초기화
-    public Student(String stuId, String neme, int grade, int classNum, String phone, String email) {
+    public Student(String stuId, String neme, int grade, int classNum, String phone, String email) { // 괄호안 매개변수 : 입력값으로
+                                                                                                     // ~가 들어올거야란 뜻
         // 멤버 변수 초기화
         this.stuId = stuId;
         this.neme = neme;
@@ -40,25 +41,26 @@ public class Student {
     }
 
     // 기능 : 전화번호를 변경한다, 이메일을 변경한다, 반을 변경한다. 학년을 변경한다.
-    // 메소드 : 리턴타입 메소드명(){} //메소드만 있는 클래스도 잇음.
-    void changeTel() {
-
+    // 메소드 : 리턴타입 메소드명(){} /메소드만 있는 클래스도 잇음. / 기능을 가지고 있음.
+    // 리턴(반환) 타입 : 기본타입(정수형, 불린형, 문자형, 실수형), 객체타입(대문자로 시작), 배열, void(리턴타입 없음)
+    void changeTel(String phone) {
+        this.phone = phone; // 멤버변수, 메소드 앞에만 this.사용 가능
     }
 
-    void changeEmail() {
-
+    void changeEmail(String email) {
+        this.email = email;
     }
 
-    void changeGrade() {
-
+    void changeGrade(int grade) {
+        this.grade = grade;
     }
 
-    void changeClassNum() {
-
+    void changeClassNum(int classNum) {
+        this.classNum = classNum;
     }
 
     @Override
-    public String toString() {
+    public String toString() { // 괄호 안이 비어 있고 리턴이 있으면 입력은 없고 출력마 있음이란 뜻.
         return "Student [stuId=" + stuId + ", neme=" + neme + ", grade=" + grade + ", classNum=" + classNum + ", phone="
                 + phone + ", email=" + email + "]";
     }
