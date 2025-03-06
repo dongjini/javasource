@@ -7,8 +7,14 @@ public class PrimitiveParamEx {
         // main 메서드
         Data d = new Data();
         d.x = 100;
-        // change(d.x);
-        change2(d);
+        System.out.println("main() x =  " + d.x);
+
+        change(d.x);
+        // 값 복사
+
+        change2(d); // d 를 넘기면 주소가 넘어감, d.x가 넘어가면 값이 넘어감.
+        // 주소 복사.
+
         System.out.println("After change() ");
         System.out.println(d.x);
         // PrimitiveParamEx obj = new PrimitiveParamEx();

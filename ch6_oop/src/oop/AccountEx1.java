@@ -9,10 +9,11 @@ public class AccountEx1 {
         System.out.println(account);
 
         account.depoit(120000);
-        System.out.println("입금 후 잔액 : " + account.balance);
+        System.out.println("입금 후 잔액 : " + account.getBalance());
 
         account.withdraw(200000);
-        System.out.println("출금 후 잔액 : " + account.balance);
+        System.out.println("출금 후 잔액 : " + account.getBalance());
 
     }
+
 }

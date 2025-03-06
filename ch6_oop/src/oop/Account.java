@@ -6,9 +6,13 @@ public class Account {
     // 기능 : 예금하다(잔액 = 잔액+예금액), 출금하다(잔액 = 잔액 - 출금액)
     // depoit, withdraw
     // 생성자 (default, 맴버변수 3개)
-    String ano;
-    String owner;
-    long balance;
+    private String ano;
+    private String owner;
+    private long balance;
+
+    public Account() {
+
+    }
 
     public Account(String ano, String owner, long balance) {
         this.ano = ano;
@@ -16,8 +20,16 @@ public class Account {
         this.balance = balance;
     }
 
-    public Account() {
+    public String getAno() {
+        return ano;
+    }
 
+    public String getOwner() {
+        return owner;
+    }
+
+    public long getBalance() {
+        return balance;
     }
 
     void depoit(long amount) {
@@ -25,6 +37,9 @@ public class Account {
     }
 
     void withdraw(long amount) {
+        // 인출액이 잔액보다 작으면 출금
+        if (amount >= balance)
+            return;
         this.balance -= amount;
     }
 

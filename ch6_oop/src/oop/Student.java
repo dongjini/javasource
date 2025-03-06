@@ -6,12 +6,12 @@ public class Student {
     // 속성 : 학번(s1024125), 이름(홍길동), 학년(1), 반(1), 전화번호(010-1234-1234), //필수는 아님, 속성은
     // 없을 수 있음.
     // 이메일(hong2@gmail.com)
-    String stuId;
-    String neme;
-    int grade;
-    int classNum;
-    String phone;
-    String email;
+    private String stuId;
+    private String neme;
+    private int grade;
+    private int classNum;
+    private String phone;
+    private String email;
 
     // 생성자 : 개발자가 명시하지 않으면 컴파일러가 자동으로 default 생성자를 만들어 줌
     // 클래스명(){}
@@ -24,7 +24,7 @@ public class Student {
     // 생성자 목적
     // 맴버변수 초기화
     public Student(String stuId, String neme, int grade, int classNum, String phone, String email) { // 괄호안 매개변수 : 입력값으로
-                                                                                                     // ~가 들어올거야란 뜻
+        // 하나의 클래스에 동일한 이름으로 존재한다면 생성자 오버로딩 // ~가 들어올거야란 뜻
         // 멤버 변수 초기화
         this.stuId = stuId;
         this.neme = neme;
@@ -63,6 +63,30 @@ public class Student {
     public String toString() { // 괄호 안이 비어 있고 리턴이 있으면 입력은 없고 출력마 있음이란 뜻.
         return "Student [stuId=" + stuId + ", neme=" + neme + ", grade=" + grade + ", classNum=" + classNum + ", phone="
                 + phone + ", email=" + email + "]";
+    }
+
+    public String getStuId() {
+        return stuId;
+    }
+
+    public String getNeme() {
+        return neme;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public int getClassNum() {
+        return classNum;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
 }
