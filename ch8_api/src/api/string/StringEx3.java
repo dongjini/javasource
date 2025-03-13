@@ -52,7 +52,7 @@ public class StringEx3 {
         // split()
         str2 = "dog, cat, bear";
         System.out.println("지정한 분리자로 나누어 배열로 반환 " + Arrays.toString(str2.split(","))); // , 를 기준으로 분리
-        String[] arr = str2.split(",", 2); // 지저된 숫자만큼 분리
+        String[] arr = str2.split(",", 2); // 지정된 숫자만큼 분리
         for (String string : arr) {
             System.out.println(string);
         }
