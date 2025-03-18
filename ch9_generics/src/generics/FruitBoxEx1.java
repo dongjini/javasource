@@ -1,9 +1,11 @@
 package generics;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 class Fruit {
-
     @Override
     public String toString() {
         return "Fruit";
@@ -11,7 +13,6 @@ class Fruit {
 }
 
 class Apple extends Fruit {
-
     @Override
     public String toString() {
         return "Apple";
@@ -19,7 +20,6 @@ class Apple extends Fruit {
 }
 
 class Grape extends Fruit {
-
     @Override
     public String toString() {
         return "Grape";
@@ -37,6 +37,10 @@ class Box3<T> {
         return list.get(i);
     }
 
+    public ArrayList<T> getList() {
+        return list;
+    }
+
     int size() {
         return list.size();
     }
@@ -49,7 +53,6 @@ class Box3<T> {
 }
 
 class Toy {
-
     @Override
     public String toString() {
         return "Toy";
@@ -57,6 +60,9 @@ class Toy {
 }
 
 public class FruitBoxEx1 {
+
+    // Comparator<String> c;
+
     public static void main(String[] args) {
         Box3<Fruit> fruitBox = new Box3<>();
         Box3<Apple> appleBox = new Box3<>();
@@ -68,12 +74,17 @@ public class FruitBoxEx1 {
         fruitBox.add(new Apple());
 
         appleBox.add(new Apple());
-        // appleBox.add(new Fruit()); (x) -> 상속관계에서 부모, 형제 안됨
-        // appleBox.add(new Grape()); (x)
+        // appleBox.add(new Fruit()); (X)
+        // appleBox.add(new Grape()); (X)
 
         toyBox.add(new Toy());
 
         grapeBox.add(new Grape());
+
+        // sort대상리스트, Comparator<? super Apple> c)
+        // <? super Apple> : Apple 클래스 + 부모(Fruit, Object)
+        List<Apple> list = new ArrayList<>();
+        Collections.sort(list, null);
 
     }
 }
