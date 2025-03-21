@@ -14,7 +14,9 @@ public class LambdaEx2 {
     public static void main(String[] args) {
         // void accept(T t);
         // 숫자를 전달인자로 받아 출력하기
-        Consumer<Integer> consumer = (i) -> System.out.println(i); // Consumer(객체 1개)받은걸 소비하는 개념.
+        // Consumer(객체1개)받은걸 소비하는 개념.
+        // Consumer<Integer> consumer = (i) -> System.out.println(i);
+        Consumer<Integer> consumer = System.out::println;
         consumer.accept(50);
 
         // 문자를 전달인자로 받아 출력 // 안녕하세요
