@@ -1,4 +1,4 @@
-package emp;
+package member;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmpDAO {
+import emp.EmpDTO;
+
+public class MemberDAO {
+
     private Connection con;
     private PreparedStatement pstmt;
     private ResultSet rs;
@@ -187,6 +190,72 @@ public class EmpDAO {
             result = pstmt.executeUpdate();
 
         } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(con, pstmt);
+        }
+        return result;
+    }
+
+    // DML + Select
+    // insert, delete, update : int 로 return
+    // select : ~~DTO(where pk 지정) or List<~~DTO>
+
+    // insert, update : 전달인자 ~~DTO 설정
+    public int insert(MemberDTO memberDTO) {
+        int result = 0;
+
+        try {
+            con = getConnection();
+
+            String sql = "insert into member(id, name, addr, email, age) ";
+            sql += "values(?, ?, ?, ?, ?)";
+
+            pstmt = con.prepareStatement(sql);
+            // 물음표ㅕ 해결
+            pstmt.setString(1, memberDTO.getId());
+            pstmt.setString(2, memberDTO.getName());
+            pstmt.setString(3, memberDTO.getAddr());
+            pstmt.setString(4, memberDTO.getEmail());
+            pstmt.setInt(5, memberDTO.getAge());
+
+            result = pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(con, pstmt);
+        }
+
+        return result;
+    }
+
+    public int update(MemberDTO memberDTO) {
+        // memberDTO
+        // 1. id, addr
+        // 2. id, email
+
+        int result = 0;
+
+        try {
+            con = getConnection();
+            String sql = "update member ";
+            if (memberDTO.getAddr() != null) {
+                sql += "set addr = ? ";
+                sql += "where id =? ";
+                pstmt = con.prepareStatement(sql);
+                pstmt.setString(1, memberDTO.getAddr());
+                pstmt.setString(2, memberDTO.getId());
+            } else {
+                sql += "set email = ? ";
+                sql += "where id = ? ";
+                pstmt = con.prepareStatement(sql);
+                pstmt.setString(1, memberDTO.getEmail());
+                pstmt.setString(2, memberDTO.getId());
+            }
+
+            result = pstmt.executeUpdate();
+
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             close(con, pstmt);
