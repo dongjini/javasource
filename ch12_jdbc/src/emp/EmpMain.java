@@ -44,6 +44,7 @@ public class EmpMain {
                     System.out.println(result > 0 ? "삭제성공" : "삭제실패");
                     break;
                 case 4:
+
                     List<EmpDTO> list = eDAO.selectAll();
                     empPrint(list);
 
